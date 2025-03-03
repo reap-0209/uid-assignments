@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Combined Web Layout Examples</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #ff0000;
+      color: #ecf0f1;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin-bottom: 10px;
+    }
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      list-style: none;
+    }
+    header nav ul li a {
+      text-decoration: none;
+      color: #ecf0f1;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    header nav ul li a:hover {
+      background-color: #2c3e50;
+    }
+    main {
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    section h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 5px;
+    }
+    footer {
+      background-color: #34495e;
+      color: #ecf0f1;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Club Website Section */
+    .club-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .club-nav {
+      width: 20%;
+      background-color: #bdc3c7;
+      padding: 10px;
+    }
+    .club-nav ul {
+      list-style: none;
+    }
+    .club-nav ul li {
+      margin: 10px 0;
+    }
+    .club-nav ul li a {
+      display: block;
+      padding: 8px;
+      text-decoration: none;
+      background-color: #db5534;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+    }
+    .club-content {
+      width: 55%;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #bdc3c7;
+    }
+    .club-aside {
+      width: 20%;
+      padding: 10px;
+      background-color: #bdc3c7;
+      text-align: center;
+      border: 1px solid #95a5a6;
+    }
+    @media (max-width: 768px) {
+      .club-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .club-nav, .club-content, .club-aside {
+        width: 90%;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Flex Image Layout */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 90%;
+      margin: auto;
+    }
+    .container img {
+      width: 30%;
+      min-width: 200px;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .container img {
+        width: 80%;
+      }
+    }
+
+    /* Grid Layouts */
+    .grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto 1.5fr;
+      width: 60%;
+      margin: auto;
+    }
+    .grid span {
+      background: #2752ae;
+      color: #fff;
+      font-size: 2rem;
+      text-align: center;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-radius: 4px;
+    }
+    .grid .first {
+      grid-column: span 3;
+    }
+    .grid .big {
+      height: 190px;
+    }
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto 1fr auto;
+      gap: 2px;
+      width: 80%;
+      margin: auto;
+      text-align: center;
+      background: #34495e;
+    }
+    .grid2 div {
+      background: #e74c3c;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border: 2px solid #2c3e50;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .grid2 div:first-child {
+      grid-column: span 3;
+    }
+    .grid2 div:nth-child(2) {
+      grid-column: span 3;
+      height: 200px;
+    }
+    .grid3 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 2px;
+      width: 80%;
+      height: 500px;
+      margin: auto;
+      text-align: center;
+      background: #34495e;
+    }
+    .grid3 div {
+      background: #9b59b6;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border: 2px solid #2c3e50;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .grid3 div:first-child {
+      grid-column: span 2;
+    }
+    .grid3 div:nth-child(4) {
+      grid-column: span 2;
+    }
+    .grid4 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto 1fr 1fr;
+      gap: 2px;
+      width: 80%;
+      height: 400px;
+      margin: auto;
+      text-align: center;
+      background: #34495e;
+    }
+    .grid4 div {
+      background: #f1c40f;
+      padding: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border: 1px solid #2c3e50;
+      border-radius: 4px;
+      color: #333;
+    }
+    .grid4 div:first-child {
+      grid-column: span 2;
+    }
+    .grid4 div:nth-child(2) {
+      grid-row: span 2;
+    }
+    .grid4 div:nth-child(3) {
+      grid-row: span 1;
+    }
+    .grid4 div:nth-child(4) {
+      grid-row: span 1;
+    }
+
+    /* iFrame Example */
+    #iframe iframe {
+      margin: 10px;
+      border: 2px solid #2c3e50;
+      border-radius: 4px;
+    }
+    #iframe a {
+      color: #db5834;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    #iframe a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Web Design - Table and Image */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #ff5500;
+      padding: 8px;
+      text-align: left;
+    }
+    @media (min-width: 1500px) {
+      th, td {
+        width: 30%;
+      }
+      th:nth-child(2), td:nth-child(2) {
+        width: 40%;
+      }
+    }
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+      }
+      thead {
+        display: none;
+      }
+      tr {
+        margin-bottom: 10px;
+        border: 1px solid #2c3e50;
+      }
+      td {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #2c3e50;
+      }
+    }
+    #responsive picture img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #2c3e50;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Assignment3</h1>
+    <nav>
+      <ul>
+        <li><a href="#club">Club Website</a></li>
+        <li><a href="#images">Image Flex</a></li>
+        <li><a href="#grid">Grid Layouts</a></li>
+        <li><a href="#iframe">iFrame Example</a></li>
+        <li><a href="#responsive">Responsive Design</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Club Website Section -->
+    <section id="club">
+      <h2>Club Website</h2>
+      <div class="club-container">
+        <nav class="club-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Events</a></li>
+          </ul>
+        </nav>
+        <section class="club-content">
+          <p>
+            Welcome to our club! Enjoy a range of events and activities designed to bring our community together. Explore our website to learn more about upcoming events, projects, and how you can get involved.
+          </p>
+        </section>
+        <aside class="club-aside">
+          <p>Organized by Club Team</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Flex Image Layout Section -->
+    <section id="images">
+      <h2>Image Flex Layout</h2>
+      <div class="container">
+        <img src="download (1).jpeg" alt="Image 1" />
+        <img src="download (2).jpeg" alt="Image 2" />
+        <img src="download (3).jpeg" alt="Image 3" />
+      </div>
+    </section>
+
+    <!-- Grid Layouts Section -->
+    <section id="grid">
+      <h2>Grid Layout Examples</h2>
+      <!-- Grid 1 -->
+      <div class="grid">
+        <span class="first">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span class="big">5</span>
+        <span class="big">6</span>
+        <span class="big">7</span>
+      </div>
+      <br>
+      <!-- Grid 2 -->
+      <div class="grid2">
+        <div>Header</div>
+        <div>Landing Page</div>
+        <div>About Us</div>
+        <div>Vision</div>
+        <div>Contact</div>
+      </div>
+      <br>
+      <!-- Grid 3 -->
+      <div class="grid3">
+        <div>Header</div>
+        <div>Abstract</div>
+        <div>Main Content</div>
+        <div>Footer</div>
+      </div>
+      <br>
+      <!-- Grid 4 -->
+      <div class="grid4">
+        <div>Header</div>
+        <div>Left Main</div>
+        <div>Aside2</div>
+        <div>Aside1</div>
+      </div>
+    </section>
+
+    <!-- iFrame Example Section -->
+    <section id="iframe">
+      <h2>iFrame Example</h2>
+      <iframe name="my_area" width="400" height="400" scrolling="yes"></iframe>
+      <br>
+      <iframe name="my_area" width="400" height="400" scrolling="yes" src="download (4).jpeg"></iframe>
+      <br>
+      <a href="https://www.amrita.edu" target="my_area">Open amrita</a>
+      <br>
+      <a href="https://www.amrita.edu" target="my_area">Open amrita in new tab</a>
+      <br>
+      <script>
+        document.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function (event) {
+            let testIframe = document.createElement('iframe');
+            testIframe.src = this.href;
+            document.body.appendChild(testIframe);
+            setTimeout(() => {
+              if (testIframe.contentDocument || testIframe.contentWindow.document) {
+                testIframe.remove();
+              } else {
+                event.preventDefault();
+                window.open(this.href, '_blank');
+              }
+            }, 500);
+          });
+        });
+      </script>
+      <p>&copy; 2025 Amrita Viswavidyapeetham. All rights reserved.</p>
+    </section>
+
+    <!-- Responsive Web Design Section -->
+    <section id="responsive">
+      <h2>Responsive Web Design</h2>
+      <h3>Responsive Image</h3>
+      <picture>
+        <source srcset="download(6).jpeg" media="(max-width: 600px)">
+        <source srcset="images.jpeg" media="(min-width: 1500px)">
+        <img src="download (5).jpeg" alt="Responsive Image">
+      </picture>
+      <h3>Responsive Table</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>xx</td>
+            <td>yy</td>
+            <td>22</td>
+          </tr>
+          <tr>
+            <td>tt</td>
+            <td>ss</td>
+            <td>21</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment3 &copy; 2025</p>
+  </footer>
+</body>
+</html>
